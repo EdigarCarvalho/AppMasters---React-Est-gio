@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 
 interface FetchData {
-    data: any;
+    data: Array<object>;
     loading: boolean;
-    error: any;
+    error: object;
 }
 
 function useFetch(url: string, headers: object): FetchData {
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<Array<object>>([]);
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<any>(null);
+    const [error, setError] = useState<object>({});
 
     useEffect(() => {
         setLoading(true);
 
         axios
-            .get(url, { headers })
+            .get(url, headers )
             .then((res: AxiosResponse) => {
                 setData(res.data);
             })

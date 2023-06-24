@@ -1,5 +1,6 @@
-import "./App.css";
+import { GameCard, GameCardInterface } from "./components/GameCard";
 import useFetch from "./hooks/useFetch";
+
 
 function App() {
 	const { data, loading, error } = useFetch(
@@ -17,11 +18,7 @@ function App() {
 
 	return (
     <>
-      {Array.isArray(data) ? (
-        data.map((item: any) => <div>{item.title}</div>)
-      ) : (
-        <p>No data available.</p>
-      )}
+      {Array.isArray(data) && (data.map((item: GameCardInterface) => <GameCard {...item}/>))}
     </>
   );
 }
