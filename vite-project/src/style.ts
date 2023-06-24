@@ -4,6 +4,7 @@ import 'typeface-roboto';
 const GlobalStyle = createGlobalStyle`
     :root{
         --light-gray: #333333;
+        --translucent-black: rgba(0,0,0,0.40);
     }
 
     body {

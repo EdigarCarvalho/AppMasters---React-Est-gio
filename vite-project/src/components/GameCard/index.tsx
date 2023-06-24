@@ -20,8 +20,10 @@ export function GameCard( props : GameCardInterface){
     return (
         <StyledGameCard>
             <img src={thumbnail} alt="" />
-            <h2>{title}</h2>
-            <p>- {developer} -</p>
+            <div className="normal-state">
+                <h2>{title}</h2>
+                <p>- {developer} -</p>
+            </div>
             {/* <hr/>
             <h4>{short_description}</h4>
             <h4>Gender: {genre}</h4>

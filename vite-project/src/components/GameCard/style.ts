@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const StyledGameCard = styled.div`
-
+  
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   padding: 1.2rem;
-  background-color: #00000050;
+  background-color: var(--translucent-black);
   color: white;
   border-radius: 1rem;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 
   width: 20rem;
-  min-height: 16rem;
+  min-height: 15rem;
 
   img{
     border-radius: 1rem;
@@ -20,6 +21,7 @@ export const StyledGameCard = styled.div`
     font-weight: 200;
     font-size: 1.82rem;
     margin: 0rem;
+    margin-top: 0.43rem;
     padding: 0rem;
   }
 
@@ -28,5 +30,11 @@ export const StyledGameCard = styled.div`
     padding: 0rem;
     font-size: 0.95rem;
     font-weight: 200;
+  }
+
+  .normal-state{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;

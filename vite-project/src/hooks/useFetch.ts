@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
+import { GameCardInterface } from "../components/GameCard";
 
 interface FetchData {
-    data: Array<object>;
+    data: GameCardInterface[];
     loading: boolean;
     error: object;
 }
 
 function useFetch(url: string, headers: object): FetchData {
-    const [data, setData] = useState<Array<object>>([]);
+    const [data, setData] = useState<GameCardInterface[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<object>({});
 

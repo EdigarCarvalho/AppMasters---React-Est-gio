@@ -1,14 +1,15 @@
-import { GameCard, GameCardInterface } from "./components/GameCard";
+import GameCardCollection from "./components/GameCardCollection";
 import useFetch from "./hooks/useFetch";
 
-
+const email = import.meta.env.VITE_API_EMAIL;
 
 function App() {
-	const { data, loading, error } = useFetch(
+	
+	const { data , loading, error } = useFetch(
 		"https://games-test-api-81e9fb0d564a.herokuapp.com/api/data",
 		{
 			headers: {
-				"dev-email-address": "edgarcarvalho8989@gmail.com",
+				"dev-email-address": email,
 			},
 		}
 	);
@@ -19,8 +20,7 @@ function App() {
 
 	return (
     <>
-
-      {Array.isArray(data) && (data.map((item: GameCardInterface) => <GameCard {...item}/>))}
+      <GameCardCollection data={data}/>
     </>
   );
 }
