@@ -20,12 +20,12 @@ export function GameCard( props : GameCardInterface){
     return (
         <StyledGameCard>
             <img src={thumbnail} alt="" />
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <p>- {developer} -</p>
-            <hr />
+            {/* <hr/>
             <h4>{short_description}</h4>
             <h4>Gender: {genre}</h4>
-            <a href={game_url}>Play Now</a>
+            <a href={game_url}>Play Now</a> */}
         </StyledGameCard>
     );
 }
