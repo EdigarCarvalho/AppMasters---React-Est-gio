@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.div`
-  
   position: relative;
   padding: 0rem;
-  
+
   margin: 0rem;
   width: 100vw;
   height: 8rem;
@@ -12,20 +11,42 @@ export const HeaderStyle = styled.div`
   border-radius: 100% / 100% 50% 0 0;
   transform: rotate(180deg);
   background-color: var(--full-black);
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 
-  .site-name, .genre-select{
+  .site-name,
+  .genre-select {
     transform: rotate(180deg);
   }
 
-  .genre-select{
+  .genre-select {
     width: 7rem;
   }
-  .site-name{
+  .site-name {
     font-size: 1.4rem;
+    color: var(--white);
   }
+
+  @media(max-width: 480px) {
+
+    border-radius: 100% / 90% 90% 0 0;
+    flex-direction: column;
+
+    .site-name {
+    display: none;
+    }
+  }
+
+  @media (max-width: 820px) and (min-width: 480px) {
+    
+    border-radius: 100% / 90% 90% 0 0;
+    flex-direction: column;
+
+    .site-name {
+      display: none;
+  }
+}
 `;
 
 export const HeaderInputStyle = styled.input`
@@ -39,6 +60,10 @@ export const HeaderInputStyle = styled.input`
   border-radius: 15px;
   font-weight: 500;
   font-size: 1.1rem;
+  font-style: italic;
+  @media only screen and (max-width: 480px) {
+    width: 15rem;
+  }
 
   `;
 

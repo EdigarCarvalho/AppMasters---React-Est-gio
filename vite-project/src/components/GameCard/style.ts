@@ -37,4 +37,17 @@ export const StyledGameCard = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
+  @media(max-width: 480px) {
+    width: 15rem;
+    min-height: 10rem;
+  }
+
+  @media (max-width: 820px) and (min-width: 480px) {
+    
+    width: 13rem;
+    min-height: 7rem;
+
+  }
+
 `;

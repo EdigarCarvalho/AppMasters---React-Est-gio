@@ -23,7 +23,7 @@ function Header({handleValueChange, genres, setGenreValue}: HeaderProps){
     return (
         <HeaderStyle>
               <Select onChange={handleChangeSelect} className="genre-select" options={options} placeholder="Genre"/>
-              <HeaderInputStyle onChange={handleChangeInput} placeholder="Enter the name of a game, eg Dota 2"/>
+              <HeaderInputStyle onChange={handleChangeInput} placeholder="Enter a game name, eg Dota 2"/>
               <div className="site-name">GamesMaster</div>
         </HeaderStyle>
     )

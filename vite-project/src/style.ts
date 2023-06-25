@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, styled } from "styled-components";
 import 'typeface-roboto';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     :root{
         --light-gray: #333333;
         --translucent-black: rgba(0,0,0,0.40);
@@ -18,4 +18,19 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export default GlobalStyle;
+export const UserMesage = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+    font-weight: 200;
+    font-size: 1.95rem;
+    margin: 0rem;
+    margin-top: 0.43rem;
+    padding: 0rem;
+    color: var(--white);
+  }
+`
