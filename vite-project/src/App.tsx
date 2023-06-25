@@ -19,15 +19,25 @@ function App() {
 
 
 	if (error) console.log(error);
+	
+	const genres :string[]= [];
 
-	const[searchStringValue, setSearchStringValue] = useState(""); 
+	const [searchStringValue, setSearchStringValue] = useState(""); 
+	const [genreValue, setGenreValue] = useState("");
 
-	return (
-    <>
-	  <Header handleValueChange={setSearchStringValue}/>
-      <GameCardCollection searchStringValue={searchStringValue} data={data}/>
+	data.filter((game) => {
+		if(!(genres.includes(game.genre)))
+			genres.push(game.genre);
+	})
+		
+	
+	return(
+   	<>
+	    <Header handleValueChange={setSearchStringValue} genres={genres} setGenreValue={setGenreValue}/>
+        <GameCardCollection searchStringValue={searchStringValue} genreValue={genreValue} data={data}/>
     </>
-  );
+    );
+	
 }
 
 export default App;

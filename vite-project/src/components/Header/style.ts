@@ -1,20 +1,31 @@
 import styled from "styled-components";
 
-
-
 export const HeaderStyle = styled.div`
   
+  position: relative;
   padding: 0rem;
+  
   margin: 0rem;
   width: 100vw;
   height: 8rem;
+
   border-radius: 100% / 100% 50% 0 0;
-  overflow: hidden;
   transform: rotate(180deg);
   background-color: var(--full-black);
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+
+  .site-name, .genre-select{
+    transform: rotate(180deg);
+  }
+
+  .genre-select{
+    width: 7rem;
+  }
+  .site-name{
+    font-size: 1.4rem;
+  }
 `;
 
 export const HeaderInputStyle = styled.input`
