@@ -1,15 +1,31 @@
+//GameCardCollection.tsx
 import { GameCard, GameCardInterface } from "../GameCard";
 import { GameCardCollectionStyled } from "./style";
 
 interface CollectionProps {
-    data: GameCardInterface[]
+    searchStringValue: string;
+    data: GameCardInterface[];
 }
 
-function GameCardCollection({data} : CollectionProps){
-    
+function GameCardCollection({ searchStringValue,data} : CollectionProps){
+
+    let gamesCollection:GameCardInterface[] = [];
+
+    if(searchStringValue !== ""){
+        data.filter((game) => {
+            if(game.title.toLowerCase()
+                   .includes(
+                    searchStringValue.toLowerCase())
+                )
+                gamesCollection.push(game);
+        })
+    }else{
+        gamesCollection = data;
+    }
+
     return (
         <GameCardCollectionStyled>
-         {data.map((game) => <GameCard {...game}/>)}
+         {gamesCollection.map((game) => <GameCard {...game}/>)}
         </GameCardCollectionStyled>
     );
 }
