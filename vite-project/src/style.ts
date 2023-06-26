@@ -1,9 +1,9 @@
 import { createGlobalStyle, styled } from "styled-components";
 import 'typeface-roboto';
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{}>`
     :root{
-        --light-gray: #333333;
+        --light-gray: #222222;
         --translucent-black: rgba(0,0,0,0.40);
         --white: #fff;
         --solid-black: #262626;

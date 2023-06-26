@@ -8,7 +8,7 @@ function GameCardCollection( propsInfo : CollectionProps){
 
     return (
         <GameCardCollectionStyled>
-         {gamesCollection.map((game) => <GameCard {...game}/>)}
+         {gamesCollection.map((game) => <GameCard key={game.id} {...game}/>)}
         </GameCardCollectionStyled>
     );
 }

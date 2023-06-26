@@ -21,11 +21,15 @@ export const HeaderStyle = styled.div`
   }
 
   .genre-select {
-    width: 7rem;
+    width: 9rem; 
+    *{background-color: var(--translucent-black) !important}
+    *{color: var(--white) !important}
+
   }
   .site-name {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--white);
+    font-weight: 200;
   }
 
   @media(max-width: 480px) {
