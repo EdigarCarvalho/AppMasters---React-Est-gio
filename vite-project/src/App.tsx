@@ -5,7 +5,7 @@ import useFetch from "./hooks/useFetch";
 import { useTimeout } from "usehooks-ts";
 import { UserMesage } from "./style";
 
-const email = import.meta.env.VITE_API_EMAIL;
+//const email = import.meta.env.VITE_API_EMAIL;
 
 interface ErrorType {
 	response: {
@@ -28,7 +28,7 @@ function App() {
 		"https://games-test-api-81e9fb0d564a.herokuapp.com/api/data",
 		{
 			headers: {
-				"dev-email-address": email,
+				"dev-email-address": "edgar@gmail.com",
 			},
 		}
 	);
