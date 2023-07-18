@@ -6,7 +6,8 @@ export const HeaderStyle = styled.div`
 
   margin: 0rem;
   width: 100vw;
-  height: 8rem;
+  height: 6rem; 
+  margin-bottom: 1.5rem;
 
   border-radius: 100% / 100% 50% 0 0;
   transform: rotate(180deg);
@@ -15,18 +16,8 @@ export const HeaderStyle = styled.div`
   justify-content: space-evenly;
   align-items: center;
 
-  .site-name,
-  .genre-select {
+  .site-name{
     transform: rotate(180deg);
-  }
-
-  .genre-select {
-    width: 9rem; 
-    *{background-color: var(--translucent-black) !important}
-    *{color: var(--white) !important}
-
-  }
-  .site-name {
     font-size: 1.5rem;
     color: var(--white);
     font-weight: 200;
@@ -53,21 +44,4 @@ export const HeaderStyle = styled.div`
 }
 `;
 
-export const HeaderInputStyle = styled.input`
-  font-family: 'Roboto', sans-serif;
-  padding-left:10px;
-  transform: rotate(180deg);
-  width: 36rem;
-  height: 2.375rem;
-  background-color: var(--solid-black);
-  color: var(--white);
-  border-radius: 15px;
-  font-weight: 500;
-  font-size: 1.1rem;
-  font-style: italic;
-  @media only screen and (max-width: 480px) {
-    width: 15rem;
-  }
-
-  `;
 
