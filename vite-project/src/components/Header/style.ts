@@ -3,45 +3,43 @@ import styled from "styled-components";
 export const HeaderStyle = styled.div`
   position: relative;
   padding: 0rem;
-
   margin: 0rem;
   width: 100vw;
-  height: 6rem; 
+  height: 5rem;
   margin-bottom: 1.5rem;
-
-  border-radius: 100% / 100% 50% 0 0;
-  transform: rotate(180deg);
   background-color: var(--full-black);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  gap: 70vw;
 
-  .site-name{
-    transform: rotate(180deg);
+  
+  .site-name {
+    text-decoration: none;
     font-size: 1.5rem;
     color: var(--white);
     font-weight: 200;
   }
 
-  @media(max-width: 480px) {
+  .text-header {
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 300;
+    text-decoration: none;
+    transition: 0.05s;
 
-    border-radius: 100% / 90% 90% 0 0;
-    flex-direction: column;
-
-    .site-name {
-    display: none;
+    &:hover{
+      font-size: 1.1rem;
+      font-weight: 500;
     }
   }
 
-  @media (max-width: 820px) and (min-width: 480px) {
-    
-    border-radius: 100% / 90% 90% 0 0;
-    flex-direction: column;
-
-    .site-name {
-      display: none;
+  div{
+    display: flex;
+    gap: 20px;
   }
-}
+
+  @media (max-width: 480px) {
+    gap: 10vw;
+  }
 `;
-
-

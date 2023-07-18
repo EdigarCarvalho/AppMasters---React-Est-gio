@@ -1,11 +1,45 @@
 import { HeaderStyle } from "./style";
-function Header() {
+import { auth } from "../../config/firebase";
+import { signOut } from "firebase/auth";
 
-    return (
-        <HeaderStyle>
-            <div className="site-name">GamesMaster</div>
-        </HeaderStyle>
-    );
+function Header() {
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <HeaderStyle>
+      <a href="/" className="site-name">
+        GamesMaster
+      </a>
+
+      {!auth.currentUser?.email && (
+        <div>
+          <a
+           href="/auth" 
+           className="text-header">
+            register
+          </a>
+          <a 
+          href="/auth" 
+          className="text-header">
+            login
+          </a>
+        </div>
+      )}
+      {auth.currentUser?.email && (
+        <div>
+          <a href="/" className="text-header" onClick={logOut}>
+            logout
+          </a>
+        </div>
+      )}
+    </HeaderStyle>
+  );
 }
 
 export default Header;

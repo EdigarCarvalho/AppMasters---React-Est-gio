@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import { AuthStyle } from "./style";
 import { auth } from "../../config/firebase";
-import { 
-   createUserWithEmailAndPassword,
-   signOut ,
-   signInWithEmailAndPassword,
-   onAuthStateChanged} from "firebase/auth";
+import { onAuthStateChanged} from "firebase/auth";
+import { AuthPageStyle } from "./style";
+import LoginComponent from "./LoginComponent";
+import RegisterComponent from "./RegisterComponent";
 
+export interface AuthPropsPages{
+  switchPage: boolean;
+  setSwitchPage : React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 function Authenticantion() {
-    const [ email , setEmail ] = useState<string>("");
-    const [ password , setPassword ] = useState<string>("");
+    const [switchPage, setSwitchPage] = useState<boolean>(true);
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -24,54 +25,20 @@ function Authenticantion() {
       return () => unsubscribe();
     }, []);
 
-    const register = async () => {
-      try {
-          await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-      } catch (error) {
-        console.log(error);
-      }
-    };
   
-    const logIn = async () => {
-      try {
-          await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    const logOut = async () => {
-      await signOut(auth);
-    };
+    // const logOut = async () => {
+    //   await signOut(auth);
+    // };
 
-    console.log(auth.currentUser?.email);
-
+    // console.log(auth.currentUser?.email);\
     
     return (
-    <>
-      <AuthStyle>
-        <input 
-        type="email" 
-        placeholder="Email" 
-        onChange={(e) => setEmail(e.target.value)}/>
-        <input 
-        type="password" 
-        placeholder="Password" 
-        onChange={(e) => setPassword(e.target.value)}/>
-        <button onClick={register}>Register</button>
-        <button onClick={logIn}>Log In</button>
-        <button onClick={logOut}>Log Out</button>
-      </AuthStyle>
-    </>
+      <AuthPageStyle>
+        { switchPage && <LoginComponent switchPage={switchPage} setSwitchPage={setSwitchPage}/> }
+        { !switchPage && <RegisterComponent switchPage={switchPage} setSwitchPage={setSwitchPage}/>}
+      </AuthPageStyle>
+
+
   );
 }
 
