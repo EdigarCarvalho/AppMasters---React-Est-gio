@@ -1,3 +1,4 @@
+//style.ts
 import styled from "styled-components";
 
 interface StyledGameCardProps {
@@ -20,7 +21,7 @@ export const StyledGameCard = styled.div<StyledGameCardProps>`
 
   h2 {
     font-weight: 200;
-    font-size: 1.82rem;
+    font-size: clamp(1.4rem, 1.8rem, 1.9rem);
     margin: 0rem;
     margin-top: 0.33rem;
     padding: 0rem;
@@ -28,7 +29,7 @@ export const StyledGameCard = styled.div<StyledGameCardProps>`
 
   h3 {
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: clamp(0.7rem, 1rem, 1.1rem);
     margin: 0rem;
     margin-top: 0.43rem;
     padding: 0rem;
@@ -66,6 +67,9 @@ export const StyledGameCard = styled.div<StyledGameCardProps>`
 
     gap: 1rem;
   }
+
+
+
   @media (max-width: 480px) {
     width: 16rem;
     min-height: 11.5rem;

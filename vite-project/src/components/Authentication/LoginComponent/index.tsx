@@ -4,8 +4,11 @@ import LoginImage from "../../../assets/login.svg";
 import { CenterComponentStyle } from "../style";
 import { auth } from "../../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { AuthPropsPages } from "..";
+
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { FirebaseError } from "@firebase/util";
+import { AuthPropsPages } from "..";
 
 function LoginComponent( { switchPage , setSwitchPage} : AuthPropsPages) {
     const navigate = useNavigate();
@@ -20,8 +23,12 @@ function LoginComponent( { switchPage , setSwitchPage} : AuthPropsPages) {
           password
         );
         navigate('/');
+        toast('😀 Welcome back!')
       } catch (error) {
-        console.log(error);
+        if (error instanceof FirebaseError) {
+          const errorCode = error.code;
+          toast.error(`Error: ${errorCode}`);
+        }
       }
     };
 

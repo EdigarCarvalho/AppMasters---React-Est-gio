@@ -5,6 +5,8 @@ import { useState } from "react";
 import { auth } from "../../../config/firebase";
 import { AuthPropsPages } from "..";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FirebaseError } from "@firebase/util";
 
 function RegisterComponent({ switchPage , setSwitchPage} : AuthPropsPages) {
     const navigate = useNavigate();
@@ -19,8 +21,12 @@ function RegisterComponent({ switchPage , setSwitchPage} : AuthPropsPages) {
           password
         );
         navigate('/');
+        toast('🥳🥳 Welcome to our platform!')
       } catch (error) {
-        console.log(error);
+        if (error instanceof FirebaseError) {
+          const errorCode = error.code;
+          toast.error(`Error: ${errorCode}`);
+        }
       }
     };
 

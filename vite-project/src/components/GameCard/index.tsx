@@ -1,5 +1,8 @@
+//index.tsx
 import { useState } from "react";
 import { StyledGameCard } from "./style";
+import Rating from "./Rating";
+import Heart from "./Heart";
 
 export interface GameCardInterface {
   id: number;
@@ -48,7 +51,9 @@ export function GameCard(props: GameCardInterface) {
           <div className="space">
             <h3>"{short_description}"</h3>
             <h3>Genre: {genre}</h3>
+            <Rating />
             <a href={game_url}>Play Now</a>
+            <Heart />
           </div>
         </div>
       </div>

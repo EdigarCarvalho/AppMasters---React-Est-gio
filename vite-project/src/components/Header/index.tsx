@@ -1,13 +1,21 @@
 import { HeaderStyle } from "./style";
 import { auth } from "../../config/firebase";
 import { signOut } from "firebase/auth";
+import { FirebaseError } from "@firebase/util";
+import { toast } from "react-toastify";
 
 function Header() {
   const logOut = async () => {
     try {
       await signOut(auth);
+      toast('😭😭 bye bye!')
     } catch (error) {
-      console.log(error);
+      if (error instanceof FirebaseError) {
+        const errorCode = error.code;
+        toast.error(`Error: ${errorCode}`);
+      } else {
+        console.log(error);
+      }
     }
   };
 
