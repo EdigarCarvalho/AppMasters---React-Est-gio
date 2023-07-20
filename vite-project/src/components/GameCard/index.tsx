@@ -18,6 +18,10 @@ export interface GameCardInterface {
   freetogame_profile_url: string;
 }
 
+export interface TitleInterface {
+  title: string;
+}
+
 
 export function GameCard(props: GameCardInterface) {
   const {
@@ -51,9 +55,9 @@ export function GameCard(props: GameCardInterface) {
           <div className="space">
             <h3>"{short_description}"</h3>
             <h3>Genre: {genre}</h3>
-            <Rating />
+            <Rating title={title} />
             <a href={game_url}>Play Now</a>
-            <Heart />
+            <Heart title={title}/>
           </div>
         </div>
       </div>

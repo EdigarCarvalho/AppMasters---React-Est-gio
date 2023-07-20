@@ -3,6 +3,8 @@ import LoginComponent from "../components/Authentication/LoginComponent";
 import { AuthPageStyle } from "../components/Authentication/style";
 
 function Login(){
+
+
     return(<>
 
     <AuthHeader/>

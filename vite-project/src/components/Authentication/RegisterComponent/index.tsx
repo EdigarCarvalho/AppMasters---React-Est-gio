@@ -2,11 +2,11 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import RegisterImage from "../../../assets/register.svg";
 import { CenterComponentStyle } from "../style";
 import { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FirebaseError } from "@firebase/util";
-import { auth } from "../../../config/firebase";
+import { auth, db } from "../../../config/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 function RegisterComponent() {
     const navigate = useNavigate();
@@ -15,13 +15,19 @@ function RegisterComponent() {
 
     const register = async () => {
       try {
-          await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-        navigate('/');
-        toast('🥳🥳 Welcome to our platform!')
+        await createUserWithEmailAndPassword(auth, email, password);
+        const user = auth.currentUser;
+    
+        if (user) {
+          const userDocRef = doc(db, "users", user.uid);
+  
+          await setDoc(userDocRef, {
+            favoritos: [],
+          });
+    
+          navigate('/');
+          toast('🥳🥳 Welcome to our platform!');
+        }
       } catch (error) {
         if (error instanceof FirebaseError) {
           const errorCode = error.code;
@@ -29,6 +35,7 @@ function RegisterComponent() {
         }
       }
     };
+    
 
   return (
     <CenterComponentStyle>

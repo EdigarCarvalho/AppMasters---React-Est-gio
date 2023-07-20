@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { FirebaseError } from "@firebase/util";
 
+
 function LoginComponent() {
     const navigate = useNavigate();
     const [ email , setEmail ] = useState<string>("");
@@ -20,6 +21,7 @@ function LoginComponent() {
           email,
           password
         );
+
         navigate('/');
         toast('😀 Welcome back!')
       } catch (error) {
