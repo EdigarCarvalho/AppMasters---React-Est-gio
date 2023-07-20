@@ -5,7 +5,7 @@ export const AuthPageStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 84vh;
 `
 
 export const CenterComponentStyle = styled.div`

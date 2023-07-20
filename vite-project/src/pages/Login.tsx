@@ -1,9 +1,14 @@
-import Authenticantion from "../components/Authentication";
+import AuthHeader from "../components/Authentication/AuthHeader";
+import LoginComponent from "../components/Authentication/LoginComponent";
+import { AuthPageStyle } from "../components/Authentication/style";
 
 function Login(){
     return(<>
 
-    <Authenticantion/>
+    <AuthHeader/>
+    <AuthPageStyle>
+       <LoginComponent/>
+    </AuthPageStyle>
     
     </>)
 }

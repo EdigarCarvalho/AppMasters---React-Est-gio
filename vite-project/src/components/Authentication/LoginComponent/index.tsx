@@ -4,13 +4,11 @@ import LoginImage from "../../../assets/login.svg";
 import { CenterComponentStyle } from "../style";
 import { auth } from "../../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { FirebaseError } from "@firebase/util";
-import { AuthPropsPages } from "..";
 
-function LoginComponent( { switchPage , setSwitchPage} : AuthPropsPages) {
+function LoginComponent() {
     const navigate = useNavigate();
     const [ email , setEmail ] = useState<string>("");
     const [ password , setPassword ] = useState<string>("");
@@ -57,7 +55,7 @@ function LoginComponent( { switchPage , setSwitchPage} : AuthPropsPages) {
         <button onClick={logIn}>Log In</button>
 
         <p>Not have an account yet? 
-            <a onClick={() => setSwitchPage(!switchPage)}> register</a>
+            <a href="/auth/register"> register</a>
         </p>
 
       </div>

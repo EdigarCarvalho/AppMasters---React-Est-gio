@@ -1,10 +1,10 @@
-import { HeaderStyle } from "./style";
-import { auth } from "../../config/firebase";
 import { signOut } from "firebase/auth";
 import { FirebaseError } from "@firebase/util";
 import { toast } from "react-toastify";
+import { auth } from "../../../config/firebase";
+import { HeaderStyle } from "../../Header/style";
 
-function Header() {
+function AuthHeader() {
   const logOut = async () => {
     try {
       await signOut(auth);
@@ -25,20 +25,14 @@ function Header() {
         GamesMaster
       </a>
 
-      {!auth.currentUser?.email && (
         <div>
           <a
-           href="/auth/register" 
+           href="/" 
            className="text-header">
-            register
-          </a>
-          <a 
-          href="/auth/login" 
-          className="text-header">
-            login
+            home
           </a>
         </div>
-      )}
+
       {auth.currentUser?.email && (
         <div>
           <a href="/" className="text-header" onClick={logOut}>
@@ -50,4 +44,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default AuthHeader;
