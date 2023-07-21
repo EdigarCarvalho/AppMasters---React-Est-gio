@@ -73,12 +73,12 @@ const Rating = (title: TitleInterface) => {
     setRating(index);
   };
 
-  return (
+  return (  
     <StarContainer>
       {[...Array(4)].map((_, index) => (
         <Star
           key={index}
-          active={index < rating}
+          active={index < rating }
           onMouseOver={() => handleHover(index + 1)}
           onClick={handleClick}
         />

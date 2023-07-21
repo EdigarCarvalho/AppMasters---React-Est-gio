@@ -16,7 +16,9 @@ function Homepage() {
   const genres: string[] = [];
   const [searchStringValue, setSearchStringValue] = useState("");
   const [genreValue, setGenreValue] = useState("");
+  const [favoriteValue, setFavoriteValue] = useState(false);
   const [timeError, setTimeError] = useState(false);
+  const [ratingValue, setRatingValue] = useState<number>(0); 
 
   useTimeout(() => {
     if (isLoading) setTimeError(true);
@@ -77,11 +79,17 @@ function Homepage() {
         handleValueChange={setSearchStringValue}
         genres={genres}
         setGenreValue={setGenreValue}
+        setFavoriteValue={setFavoriteValue}
+        favoriteValue={favoriteValue}
+        setRatingValue={setRatingValue}
+        ratingValue={ratingValue}
       />
       <GameCardCollection
         searchStringValue={searchStringValue}
         genreValue={genreValue}
         data={data}
+        favoriteValue={favoriteValue}
+        ratingValue={ratingValue}
       />
 
     </>
