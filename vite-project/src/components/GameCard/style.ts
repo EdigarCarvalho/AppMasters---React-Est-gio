@@ -87,8 +87,20 @@ export const StyledGameCard = styled.div<StyledGameCardProps>`
       padding-bottom: 0rem;
     }
 
+    a{
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 0.8rem;
+    }
+
     h3 {
       font-size: 0.84rem;
+    }
+
+    .space {
+       gap: 0.4rem;
     }
   }
 
@@ -111,6 +123,18 @@ export const StyledGameCard = styled.div<StyledGameCardProps>`
     p {
       font-size: 0.75rem;
     }
+
+    a{
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .space {
+       gap: 0.4rem;
+    } 
   }
 
   width: 20rem;

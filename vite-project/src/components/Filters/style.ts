@@ -51,5 +51,55 @@ export const InputStyle = styled.input`
     width: 15rem;
   }
 
+  `;  
+
+export const FavoriteStyle = styled.button  `
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(0.8rem, 0.9rem, 1rem);
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  font-weight: 300;
+  transition: 0.5s;
+
+    &:hover{
+      border: 1px solid white;
+      background-color: var(--translucent-black);
+      padding: 0.9vh;
+      border-radius: 15px;
+    }
+
+    &.active {
+    border: 1px solid white;
+    background-color: var(--translucent-black);
+    padding: 0.9vh;
+    border-radius: 15px;
+  }
+
   `;
+
+interface RatingProps {
+  ratingValue: number;
+}
+
+
+export const RatingStyle = styled.button<RatingProps>`
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(0.8rem, 0.9rem, 1rem);
+  border: none;
+  background-color: transparent;
+  padding: 0.9vh;
+  border-radius: 15px;  
+  color: ${(props) =>
+    props.ratingValue === 1 ? 'yellow' : props.ratingValue === 2 ? 'red' : 'var(--white)'};
+  border: 1px solid ${(props) =>
+    props.ratingValue === 1 ? 'yellow' : props.ratingValue === 2 ? 'red' : 'transparent'};
+  font-weight: 300;
+  transition: 0.5s;
+
+  &:hover{
+      border: 1px solid white;
+      background-color: var(--translucent-black);
+    }
+`;
 

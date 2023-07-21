@@ -27,7 +27,7 @@ function Heart(title: TitleInterface) {
       const userDoc = await getDoc(userDocRef);
       
       if (userDoc.exists()) {
-        const userFavorites: Favorito[] = userDoc.data()?.favoritos || [];
+        const userFavorites: Favorito[] = userDoc.data()?.favorites || [];
         const isGameAlreadyFavorited = userFavorites.some(
           (jogo: Favorito) => jogo.title === title.title
         );
@@ -42,19 +42,17 @@ function Heart(title: TitleInterface) {
       toast.error('To favorite a game, you need to log in to your account.');
     } else {
       try {
-        // Step 1: Get the current user's UID.
         const uid = auth.currentUser.uid;
 
-        // Step 2: Use the current user's UID to find their document in the "users" collection.
         const usersCollectionRef = collection(db, 'users');
         const userDocRef = doc(usersCollectionRef, uid);
         const userDoc = await getDoc(userDocRef);
 
-        // Step 3: Update the "favoritos" array in the user's document.
-        if (userDoc.exists()) {
-          const userFavorites: Favorito[] = userDoc.data()?.favoritos || [];
 
-          // Check if the title already exists in the favorites array
+        if (userDoc.exists()) {
+          const userFavorites: Favorito[] = userDoc.data()?.favorites || [];
+
+
           const isGameAlreadyFavorited = userFavorites.some(
             (jogo: Favorito) => jogo.title === title.title
           );
@@ -72,12 +70,12 @@ function Heart(title: TitleInterface) {
             if (!isGameAlreadyFavorited) {
               updatedFavorites = [...userFavorites, { title: title.title }];
             } else {
-              // If it's already favorited, just keep the existing favorites
+
               updatedFavorites = userFavorites;
             }
           }
 
-          await updateDoc(userDocRef, { favoritos: updatedFavorites });
+          await updateDoc(userDocRef, { favorites: updatedFavorites });
           setFilled(!filled);
         }
       } catch (error) {
@@ -91,7 +89,9 @@ function Heart(title: TitleInterface) {
 
   return (
     <>
-      <HeartStyle active={filled} onClick={handleClick} />
+      <HeartStyle 
+        active={filled ? "true" : "false"}     
+        onClick={handleClick} />
     </>
   );
 }
