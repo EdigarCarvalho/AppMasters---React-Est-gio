@@ -7,13 +7,14 @@ export const GlobalStyle = createGlobalStyle<{}>`
         --translucent-black: rgba(0,0,0,0.40);
         --white: #fff;
         --solid-black: #262626;
-        --full-black: rgba(0,0,0,0.65);;
+        --full-black: rgba(0,0,0,0.65);
+        --image-back: #111;
     }
 
     body {
         font-family: 'Roboto', sans-serif;
         background-color: var(--light-gray);
-        margin: 0rem;
+        margin: 0rem;   
         padding: 0rem;
     }
 `;
